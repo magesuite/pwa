@@ -2,7 +2,7 @@
 
 namespace MageSuite\Pwa\Controller;
 
-class Pwa
+class Router
 {
     const AVAILABLE_FILES = [
         "manifest.json" => "Manifest",
