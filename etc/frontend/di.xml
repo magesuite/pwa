@@ -5,7 +5,7 @@
         <arguments>
             <argument name="routerList" xsi:type="array">
                 <item name="magesuite-pwa" xsi:type="array">
-                    <item name="class" xsi:type="string">MageSuite\Pwa\Controller\Pwa</item>
+                    <item name="class" xsi:type="string">MageSuite\Pwa\Controller\Router</item>
                     <item name="disable" xsi:type="boolean">false</item>
                     <item name="sortOrder" xsi:type="string">10</item>
                 </item>

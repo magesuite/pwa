@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page layout="pwa" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="root">
+            <block class="MageSuite\Pwa\Block\Data" name="manifestData" template="MageSuite_Pwa::serviceworker.phtml">
+                <arguments>
+                    <argument xsi:type="object" name="view_model">MageSuite\Pwa\Model\Data\ViewModel</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
