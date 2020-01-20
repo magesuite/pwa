@@ -1,0 +1,5 @@
+<?php
+$serviceWorkerContents = $block->getChildHtml();
+$serviceWorkerContents = str_replace(['<script>', '</script>'], '', $block->getChildHtml());
+
+echo $serviceWorkerContents;

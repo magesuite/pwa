@@ -19,7 +19,8 @@ class Index extends \Magento\Framework\App\Action\Action
     {
         $resultPage = $this->resultPageFactory->create(true);
         $resultPage->addHandle('pwa_serviceworker_index');
-        $resultPage->setHeader('Content-Type', 'text/plain');
+        $resultPage->setHeader('Content-Type', 'text/javascript');
+        $resultPage->setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
         return $resultPage;
     }
 }

@@ -1,0 +1,55 @@
+<script>
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js');
+
+workbox.setConfig({
+  debug: true
+});
+
+
+workbox.routing.registerRoute(
+  /static\/.+\.(?:png|gif|jpg|jpeg|webp|svg|js|css|html)$/,
+  new workbox.strategies.CacheFirst({
+    cacheName: 'static',
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxEntries: 300,
+        maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+      }),
+    ],
+  })
+);
+
+workbox.routing.registerRoute(
+  /navigation\/mobile\/index/,
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: 'mobile-navigation',
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxEntries: 1,
+      }),
+    ],
+  })
+);
+
+workbox.routing.registerRoute(
+  /review\/product\/listAjax/,
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: 'product-reviews',
+  })
+);
+
+workbox.routing.registerRoute(
+  // Custom `matchCallback` function
+  ({event}) => new URL(event.request.url).origin === self.location.origin,
+  new workbox.strategies.NetworkFirst({
+    cacheName: 'offline-pages',
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxEntries: 60,
+        maxAgeSeconds: 60 * 60, // 1 Hour
+      }),
+    ],
+  })
+);
+
+</script>
