@@ -1,0 +1,13 @@
+<script>
+workbox.routing.registerRoute(
+  /navigation\/mobile\/index/,
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: 'mobile-navigation',
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxEntries: 1,
+      }),
+    ],
+  })
+);
+</script>
