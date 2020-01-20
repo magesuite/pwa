@@ -19,7 +19,7 @@ class Index extends \Magento\Framework\App\Action\Action
     {
         $resultPage = $this->resultPageFactory->create(true);
         $resultPage->addHandle('pwa_manifest_index');
-        $resultPage->setHeader('Content-Type', 'text/plain');
+        $resultPage->setHeader('Content-Type', 'application/json');
         return $resultPage;
     }
 }

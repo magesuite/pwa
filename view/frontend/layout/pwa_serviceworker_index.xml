@@ -1,11 +1,18 @@
 <?xml version="1.0"?>
-<page layout="pwa" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page layout="pwa" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="root">
-            <block class="MageSuite\Pwa\Block\Data" name="manifestData" template="MageSuite_Pwa::serviceworker.phtml">
+            <block class="MageSuite\Pwa\Block\Data" name="pwa.service-worker" template="MageSuite_Pwa::service-worker.phtml">
                 <arguments>
                     <argument xsi:type="object" name="view_model">MageSuite\Pwa\Model\Data\ViewModel</argument>
                 </arguments>
+                <block class="MageSuite\Pwa\Block\Data" name="pwa.service-worker.workbox" template="MageSuite_Pwa::service-worker/workbox.phtml"/>
+                <block class="MageSuite\Pwa\Block\Data" name="pwa.service-worker.static" template="MageSuite_Pwa::service-worker/static.phtml"/>
+                <block class="MageSuite\Pwa\Block\Data" name="pwa.service-worker.mobile-navigation" template="MageSuite_Pwa::service-worker/mobile-navigation.phtml"/>
+                <block class="MageSuite\Pwa\Block\Data" name="pwa.service-worker.product-reviews" template="MageSuite_Pwa::service-worker/product-reviews.phtml"/>
+                <block class="MageSuite\Pwa\Block\Data" name="pwa.service-worker.google-fonts" template="MageSuite_Pwa::service-worker/google-fonts.phtml"/>
+                <block class="MageSuite\Pwa\Block\Data" name="pwa.service-worker.offline-pages" template="MageSuite_Pwa::service-worker/offline-pages.phtml"/>
             </block>
         </referenceContainer>
     </body>

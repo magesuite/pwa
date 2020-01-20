@@ -1,0 +1,8 @@
+<script>
+workbox.routing.registerRoute(
+  /review\/product\/listAjax/,
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: 'product-reviews',
+  })
+);
+</script>

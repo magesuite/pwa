@@ -1,0 +1,14 @@
+<script>
+workbox.routing.registerRoute(
+  /static\/.+\.(?:png|gif|jpg|jpeg|webp|svg|js|css|html)$/,
+  new workbox.strategies.CacheFirst({
+    cacheName: 'static',
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxEntries: 300,
+        maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+      }),
+    ],
+  })
+);
+</script>
