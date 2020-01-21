@@ -1,0 +1,6 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \MageSuite\Pwa\Model\Data; $viewModel */
+$viewModel = $block->getViewModel();
+?>
+<meta name="apple-mobile-web-app-title" content="<?= $viewModel->getName(); ?>">
