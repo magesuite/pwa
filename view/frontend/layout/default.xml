@@ -1,11 +1,20 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
-        <meta name="theme-color" content="#FFA500" />
+        <!-- Add theme-color here -->
+        <meta name="theme-color" content="#FFA500"/>
+        <!-- Add iOS meta tags and icons -->
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
     </head>
     <body>
         <referenceContainer name="head.additional">
             <block name="pwa.manifest.meta" template="MageSuite_Pwa::manifest-meta.phtml" />
+            <block name="pwa.manifest.title" template="MageSuite_Pwa::apple-mobile-web-app-title.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">MageSuite\Pwa\Model\Data\ViewModel</argument>
+                </arguments>
+            </block>
         </referenceContainer>
         <referenceContainer name="before.body.end">
             <block name="pwa.service-worker.register" template="MageSuite_Pwa::service-worker/register.phtml" after="-"/>

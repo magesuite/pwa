@@ -6,9 +6,6 @@
             <block class="MageSuite\Pwa\Block\Data" name="pwa.manifest" template="MageSuite_Pwa::manifest.phtml">
                 <arguments>
                     <argument name="view_model" xsi:type="object">MageSuite\Pwa\Model\Data\ViewModel</argument>
-                    <argument name="name" xsi:type="string">MageSuite</argument>
-                    <argument name="short_name" xsi:type="string">MageSuite PWA</argument>
-                    <argument name="description" xsi:type="string">Awesome application that will help you achieve your dreams.</argument>
                     <argument name="background_color" xsi:type="string">#FFF</argument>
                     <argument name="theme_color" xsi:type="string">#FFA500</argument>
                     <argument name="categories" xsi:type="array">
