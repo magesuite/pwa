@@ -1,16 +1,17 @@
 <?php
 /** @var \MageSuite\Pwa\Block\Data $block */
-/** @var \MageSuite\Pwa\Model\Data; $viewModel */
+/** @var \MageSuite\Pwa\Model\Data\ViewModel $viewModel */
 $viewModel = $block->getViewModel();
+$configuration = $viewModel->getConfiguration();
 ?>
 {
-    "name": "<?= $viewModel->getName(); ?>",
-    "short_name": "<?= $viewModel->getShortName(); ?>",
-    "start_url": "<?= $viewModel->getStartUrl(); ?>",
-    "display": "standalone",
-    "background_color": "<?= $block->getBackgroundColor(); ?>",
-    "theme_color": "<?= $block->getThemeColor(); ?>",
-    "description": "<?= $block->getDescription(); ?>",
+    "name": "<?= $configuration->getName(); ?>",
+    "short_name": "<?= $configuration->getShortName(); ?>",
+    "start_url": "<?= $configuration->getStartUrl(); ?>",
+    "display": "<?=$configuration->getDisplayMode()?>",
+    "background_color": "<?= $configuration->getBackgroundColor(); ?>",
+    "theme_color": "<?= $configuration->getThemeColor(); ?>",
+    "description": "<?= $configuration->getDescription(); ?>",
     "categories": ["<?= implode("\", \"", $block->getCategories()); ?>"],
     "icons": [
         { 

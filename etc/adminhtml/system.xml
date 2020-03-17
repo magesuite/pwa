@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magesuite" translate="label" sortOrder="300">
+            <label>MageSuite</label>
+        </tab>
+        <section id="pwa" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>PWA</label>
+            <tab>magesuite</tab>
+            <resource>MageSuite_Pwa::config_pwa</resource>
+            <group id="general" translate="label" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="name" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Name</label>
+                    <depends>
+                        <field id="pwa/general/enabled">1</field>
+                    </depends>
+                    <comment>Application name displayed on the splash screen below the icon.</comment>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="short_name" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Short name</label>
+                    <depends>
+                        <field id="pwa/general/enabled">1</field>
+                    </depends>
+                    <comment>Application name displayed in the application drawer or on the home screen.</comment>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="description" translate="label" type="textarea" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Description</label>
+                    <depends>
+                        <field id="pwa/general/enabled">1</field>
+                    </depends>
+                    <comment>Application description, not displayed anywhere but can be used by app stores in the future.</comment>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="start_url" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Start URL</label>
+                    <source_model>MageSuite\Pwa\Model\Config\Source\CmsPage</source_model>
+                    <depends>
+                        <field id="pwa/general/enabled">1</field>
+                    </depends>
+                    <comment>Page which should be loaded when users open the application.</comment>
+                </field>
+                <field id="display_mode" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Display mode</label>
+                    <source_model>MageSuite\Pwa\Model\Config\Source\DisplayMode</source_model>
+                    <depends>
+                        <field id="pwa/general/enabled">1</field>
+                    </depends>
+                    <comment>The way the installed application will be displayed. Please refer to https://web.dev/add-manifest/#display for a detailed description of each mode.</comment>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="background_color" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Background color</label>
+                    <depends>
+                        <field id="pwa/general/enabled">1</field>
+                    </depends>
+                    <comment>Background of the splash screen, the one displayed when the application is loading for the first time.</comment>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="theme_color" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Theme color</label>
+                    <depends>
+                        <field id="pwa/general/enabled">1</field>
+                    </depends>
+                    <comment>General theme color of the application, used as the status bar background.</comment>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="debug_mode_enabled" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Debug mode enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="pwa/general/enabled">1</field>
+                    </depends>
+                    <comment>Enables service worker debug mode.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
