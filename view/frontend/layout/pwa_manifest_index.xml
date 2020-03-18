@@ -3,7 +3,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="root">
-            <block class="MageSuite\Pwa\Block\Data" name="pwa.manifest" template="MageSuite_Pwa::manifest.phtml" ifconfig="pwa/general/enabled">
+            <block class="MageSuite\Pwa\Block\Data" name="pwa.manifest" template="MageSuite_Pwa::manifest.phtml" ifconfig="pwa/general/is_enabled">
                 <arguments>
                     <argument name="view_model" xsi:type="object">MageSuite\Pwa\Model\Data\ViewModel</argument>
                     <argument name="background_color" xsi:type="string">#FFF</argument>

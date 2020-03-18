@@ -24,37 +24,27 @@ class Configuration extends \Magento\Framework\App\Helper\AbstractHelper
 
     public function isEnabled()
     {
-        $config = $this->getConfig();
-
-        return (bool)$config->getEnabled();
+        return (bool)$this->getConfig()->getIsEnabled();
     }
 
     public function getName()
     {
-        $config = $this->getConfig();
-
-        return (string)$config->getName();
+        return (string)$this->getConfig()->getName();
     }
 
     public function getShortName()
     {
-        $config = $this->getConfig();
-
-        return (string)$config->getShortName();
+        return (string)$this->getConfig()->getShortName();
     }
 
     public function getDescription()
     {
-        $config = $this->getConfig();
-
-        return (string)$config->getDescription();
+        return (string)$this->getConfig()->getDescription();
     }
 
     public function getStartUrl()
     {
-        $config = $this->getConfig();
-
-        $pageIdentifier = $config->getStartUrl();
+        $pageIdentifier = $this->getConfig()->getStartUrl();
 
         if (empty($pageIdentifier)) {
             return $this->_getUrl('');
@@ -71,30 +61,22 @@ class Configuration extends \Magento\Framework\App\Helper\AbstractHelper
 
     public function getDisplayMode()
     {
-        $config = $this->getConfig();
-
-        return (string)$config->getDisplayMode();
+        return (string)$this->getConfig()->getDisplayMode();
     }
 
     public function getBackgroundColor()
     {
-        $config = $this->getConfig();
-
-        return (string)$config->getBackgroundColor();
+        return (string)$this->getConfig()->getBackgroundColor();
     }
 
     public function getThemeColor()
     {
-        $config = $this->getConfig();
-
-        return (string)$config->getThemeColor();
+        return (string)$this->getConfig()->getThemeColor();
     }
 
     public function isDebugModeEnabled()
     {
-        $config = $this->getConfig();
-
-        return (bool)$config->getDebugModeEnabled();
+        return (bool)$this->getConfig()->getDebugModeIsEnabled();
     }
 
     protected function getConfig()

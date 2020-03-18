@@ -3,11 +3,11 @@
     <default>
         <pwa>
             <general>
-                <enabled>false</enabled>
+                <is_enabled>false</is_enabled>
                 <display_mode>minimal-ui</display_mode>
                 <background_color>#FFFFFF</background_color>
                 <theme_color>#FFFFFF</theme_color>
-                <debug_mode_enabled>false</debug_mode_enabled>
+                <debug_mode_is_enabled>false</debug_mode_is_enabled>
             </general>
         </pwa>
     </default>
