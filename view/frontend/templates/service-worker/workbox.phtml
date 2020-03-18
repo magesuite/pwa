@@ -1,3 +1,15 @@
+<?php
+/** @var \MageSuite\Pwa\Block\Data $block */
+/** @var \MageSuite\Pwa\Model\Data\ViewModel $viewModel */
+$viewModel = $block->getViewModel();
+$configuration = $viewModel->getConfiguration();
+?>
 <script>
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js');
+
+<?php if ($configuration->isDebugModeEnabled()): ?>
+workbox.setConfig({
+  debug: true
+});
+<?php endif; ?>
 </script>

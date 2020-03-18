@@ -1,9 +1,9 @@
 <?php
 /** @var $block \MageSuite\Pwa\Block\Data */
-$url = $block->getBaseUrl().'service-worker.js';
+$url = $block->getBaseUrl() . 'service-worker.js';
 ?>
 <script>
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('<?=$url?>');
+    navigator.serviceWorker.register('<?= $url; ?>');
 }
 </script>

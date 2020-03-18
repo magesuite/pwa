@@ -1,6 +1,6 @@
 <script>
 workbox.routing.registerRoute(
-  ({event}) => new URL(event.request.url).origin === self.location.origin,
+  ({ event }) => new URL(event.request.url).origin === self.location.origin,
   new workbox.strategies.NetworkFirst({
     cacheName: 'offline-pages',
     plugins: [
