@@ -9,15 +9,15 @@
     </head>
     <body>
         <referenceContainer name="head.additional">
-            <block name="pwa.manifest.meta" template="MageSuite_Pwa::manifest-meta.phtml" />
-            <block name="pwa.manifest.title" template="MageSuite_Pwa::apple-mobile-web-app-title.phtml">
+            <block name="pwa.manifest.meta" template="MageSuite_Pwa::manifest-meta.phtml" ifconfig="pwa/general/is_enabled" />
+            <block name="pwa.manifest.title" template="MageSuite_Pwa::apple-mobile-web-app-title.phtml" ifconfig="pwa/general/is_enabled">
                 <arguments>
                     <argument name="view_model" xsi:type="object">MageSuite\Pwa\Model\Data\ViewModel</argument>
                 </arguments>
             </block>
         </referenceContainer>
         <referenceContainer name="before.body.end">
-            <block name="pwa.service-worker.register" template="MageSuite_Pwa::service-worker/register.phtml" after="-"/>
+            <block name="pwa.service-worker.register" template="MageSuite_Pwa::service-worker/register.phtml" after="-" ifconfig="pwa/general/is_enabled"/>
         </referenceContainer>
     </body>
 </page>

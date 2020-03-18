@@ -1,6 +1,7 @@
 <?php
 /** @var \Magento\Framework\View\Element\Template $block */
-/** @var \MageSuite\Pwa\Model\Data; $viewModel */
+/** @var \MageSuite\Pwa\Model\Data\ViewModel $viewModel */
 $viewModel = $block->getViewModel();
+$configuration = $viewModel->getConfiguration();
 ?>
-<meta name="apple-mobile-web-app-title" content="<?= $viewModel->getName(); ?>">
+<meta name="apple-mobile-web-app-title" content="<?= $configuration->getName(); ?>">

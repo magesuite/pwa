@@ -5,27 +5,26 @@ namespace MageSuite\Pwa\Model\Data;
 class ViewModel implements \Magento\Framework\View\Element\Block\ArgumentInterface
 {
     /**
+     * @var \MageSuite\Pwa\Helper\Configuration
+     */
+    protected $configuration;
+
+    /**
      * @var \Magento\Store\Model\StoreManagerInterface
      */
-    private $storeManager;
+    protected $storeManager;
 
-    public function __construct(\Magento\Store\Model\StoreManagerInterface $storeManager, array $data = [])
-    {
+    public function __construct(
+        \Magento\Store\Model\StoreManagerInterface $storeManager,
+        \MageSuite\Pwa\Helper\Configuration $configuration,
+        array $data = []
+    ) {
         $this->storeManager = $storeManager;
+        $this->configuration = $configuration;
     }
 
-    public function getName()
+    public function getConfiguration()
     {
-        return $this->storeManager->getStore()->getName();
-    }
-
-    public function getShortName()
-    {
-        return $this->storeManager->getStore()->getName();
-    }
-
-    public function getStartUrl()
-    {
-        return $this->storeManager->getStore()->getBaseUrl();
+        return $this->configuration;
     }
 }
