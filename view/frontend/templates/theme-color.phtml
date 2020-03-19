@@ -1,0 +1,7 @@
+<?php
+/** @var \MageSuite\Pwa\Block\Data $block */
+/** @var \MageSuite\Pwa\Model\Data\ViewModel $viewModel */
+$viewModel = $block->getViewModel();
+$configuration = $viewModel->getConfiguration();
+?>
+<meta name="theme-color" content="<?= $configuration->getThemeColor(); ?>"/>
