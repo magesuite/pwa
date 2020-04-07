@@ -1,7 +1,12 @@
+<?php
+/**
+ * Caches MageSuite's mobile navigation endpoint.
+ */
+?>
 <script>
 workbox.routing.registerRoute(
   /navigation\/mobile\/index/,
-  new workbox.strategies.StaleWhileRevalidate({
+  new workbox.strategies.CacheFirst({
     cacheName: 'mobile-navigation',
     plugins: [
       new workbox.expiration.Plugin({

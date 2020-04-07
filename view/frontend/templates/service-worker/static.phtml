@@ -1,6 +1,17 @@
+<?php
+/**
+ * Route responsible for caching static files with CDN support.
+ */
+?>
+<?php
+/**
+ * External URLs have to be fully matched by a RegExp so we need statics' base URL.
+ */
+$staticBaseUrl = $block->getViewFileUrl('');
+?>
 <script>
 workbox.routing.registerRoute(
-  /static\/.+\.(?:png|gif|jpg|jpeg|webp|svg|js|css|html)$/,
+  new RegExp('<?= $staticBaseUrl; ?>.+\.(?:png|gif|jpg|jpeg|webp|svg|js|css|html)$'),
   new workbox.strategies.CacheFirst({
     cacheName: 'static',
     plugins: [
