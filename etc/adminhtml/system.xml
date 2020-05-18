@@ -46,6 +46,14 @@
                     </depends>
                     <comment>Page which should be loaded when users open the application.</comment>
                 </field>
+                <field id="offline_page_url" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Offline page URL</label>
+                    <source_model>MageSuite\Pwa\Model\Config\Source\CmsPage</source_model>
+                    <depends>
+                        <field id="pwa/general/is_enabled">1</field>
+                    </depends>
+                    <comment>Page which should be shown when user device is offline.</comment>
+                </field>
                 <field id="display_mode" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Display mode</label>
                     <source_model>MageSuite\Pwa\Model\Config\Source\DisplayMode</source_model>

@@ -46,17 +46,14 @@ class Configuration extends \Magento\Framework\App\Helper\AbstractHelper
     {
         $pageIdentifier = $this->getConfig()->getStartUrl();
 
-        if (empty($pageIdentifier)) {
-            return $this->_getUrl('');
-        }
+        return $this->getPageUrl($pageIdentifier);
+    }
 
-        $url = $this->pageHelper->getPageUrl($pageIdentifier);
+    public function getOfflinePageUrl()
+    {
+        $pageIdentifier = $this->getConfig()->getOfflinePageUrl();
 
-        if (empty($url)) {
-            return $this->_getUrl('');
-        }
-
-        return $url;
+        return $this->getPageUrl($pageIdentifier);
     }
 
     public function getDisplayMode()
@@ -88,5 +85,20 @@ class Configuration extends \Magento\Framework\App\Helper\AbstractHelper
         }
 
         return $this->config;
+    }
+
+    public function getPageUrl($pageIdentifier)
+    {
+        if (empty($pageIdentifier)) {
+            return $this->_getUrl('');
+        }
+
+        $url = $this->pageHelper->getPageUrl($pageIdentifier);
+
+        if (empty($url)) {
+            return $this->_getUrl('');
+        }
+
+        return $url;
     }
 }
