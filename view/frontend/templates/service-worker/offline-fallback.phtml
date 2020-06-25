@@ -1,0 +1,29 @@
+<?php
+/**
+ * Serve offline fallback page.
+ */
+
+/** @var \MageSuite\Pwa\Block\Data $block */
+/** @var \MageSuite\Pwa\Model\Data\ViewModel $viewModel */
+$viewModel = $block->getViewModel();
+$configuration = $viewModel->getConfiguration();
+?>
+<script>
+const offlinePageUrl = '<?= $configuration->getOfflinePageUrl(); ?>';
+
+workbox.precaching.precacheAndRoute([
+    offlinePageUrl
+]);
+
+workbox.routing.setCatchHandler(({ event: { request } }) => {
+    switch (request.destination) {
+        case 'document':
+            return caches.match(request.url)
+                .then(response => response || caches.match(offlinePageUrl))
+                .catch(() => caches.match(offlinePageUrl));
+        break;
+        default:
+            return Response.error();
+  }
+});
+</script>

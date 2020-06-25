@@ -1,10 +1,21 @@
+<?php
+/**
+ * Route responsible for caching WYSIWYG files with CDN support.
+ */
+?>
+<?php
+/**
+ * External URLs have to be fully matched by a RegExp so we need media base URL.
+ */
+$mediaBaseUrl = $block->getMediaBaseUrl();
+?>
 <script>
 workbox.routing.registerRoute(
-  /media\/.+\.(?:png|gif|jpg|jpeg|webp|svg|js|css|html)$/,
+  new RegExp('<?= $mediaBaseUrl; ?>.+\.(?:png|gif|jpg|jpeg|webp|svg|js|css|html)$'),
   new workbox.strategies.CacheFirst({
     cacheName: 'media',
     plugins: [
-      new workbox.expiration.ExpirationPlugin({
+      new workbox.expiration.Plugin({
         maxEntries: 300,
         maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
       }),
