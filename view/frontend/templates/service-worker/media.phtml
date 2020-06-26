@@ -4,10 +4,13 @@
  */
 ?>
 <?php
+/** @var \MageSuite\Pwa\Block\Data $block */
+/** @var \MageSuite\Pwa\Model\Data\ViewModel $viewModel */
+$viewModel = $block->getViewModel();
 /**
  * External URLs have to be fully matched by a RegExp so we need media base URL.
  */
-$mediaBaseUrl = $block->getMediaBaseUrl();
+$mediaBaseUrl = $viewModel->getMediaBaseUrl();
 ?>
 <script>
 workbox.routing.registerRoute(
