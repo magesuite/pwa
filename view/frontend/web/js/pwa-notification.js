@@ -72,7 +72,7 @@ define([
          */
         _acceptClickHandler: function (deferredPrompt) {
             deferredPrompt.prompt();
-            deferredPrompt.userChoice.then((choiceResult) => {
+            deferredPrompt.userChoice.then(function(choiceResult) {
                 if (choiceResult.outcome !== 'accepted') {
                     // some action can be placed here
                 } else {
