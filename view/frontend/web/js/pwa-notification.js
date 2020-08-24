@@ -23,20 +23,20 @@ define([
          * @private
          */
         _create: function () {
-            window.addEventListener('beforeinstallprompt', (e) => {
-                e.preventDefault();
+            window.addEventListener('beforeinstallprompt', function(event) {
+                event.preventDefault();
                 var lastDeclinedTime = localStorage.getItem('magesuite-pwa-notification-declined-time');
                 console.log(lastDeclinedTime);
                 console.log( new Date().getTime() - this.options.showAgainTime >= lastDeclinedTime);
 
                 if (!lastDeclinedTime || new Date().getTime() - this.options.showAgainTime >= lastDeclinedTime) {
-                    this._showCustomPwaNotification(e);
+                    this._showCustomPwaNotification(event);
                 }
             });
         },
 
         /**
-         * Template for PWA custom notification is based on custom modal template. 
+         * Template for PWA custom notification is based on custom modal template.
          * It can be changed by overriding MageSuite_Pwa/template/pwa-notification.html file or by specifying path to own template options
          * @private
          */
@@ -61,7 +61,7 @@ define([
                     click: function() {
                         pwaWidget._acceptClickHandler(deferredPrompt);
                         this.closeModal(true);
-                    }              
+                    }
                 }]
             });
         },
