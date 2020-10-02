@@ -4,7 +4,7 @@ define([
     'text!MageSuite_Pwa/template/pwa-notification.html',
     'jquery-ui-modules/widget',
     'mage/validation',
-    'jquery/jquery-storageapi'
+    'jquery/jquery-storageapi',
 ], function ($, alert, template) {
     'use strict';
 
@@ -12,10 +12,12 @@ define([
         options: {
             popupTpl: template,
             titleText: 'Add to homescreen headline',
-            contentText: $.mage.__('Now add the MageSuite Demo Shop to your homescreen with one click'),
+            contentText: $.mage.__(
+                'Now add the MageSuite Demo Shop to your homescreen with one click'
+            ),
             acceptButtonText: 'Add to homescreen',
             modalClass: '',
-            showAgainTime: 604800000 // a weak
+            showAgainTime: 604800000, // a weak
         },
 
         /**
@@ -23,16 +25,24 @@ define([
          * @private
          */
         _create: function () {
-            window.addEventListener('beforeinstallprompt', function(event) {
-                event.preventDefault();
-                var lastDeclinedTime = localStorage.getItem('magesuite-pwa-notification-declined-time');
-                console.log(lastDeclinedTime);
-                console.log( new Date().getTime() - this.options.showAgainTime >= lastDeclinedTime);
+            window.addEventListener(
+                'beforeinstallprompt',
+                function (event) {
+                    event.preventDefault();
 
-                if (!lastDeclinedTime || new Date().getTime() - this.options.showAgainTime >= lastDeclinedTime) {
-                    this._showCustomPwaNotification(event);
-                }
-            });
+                    var lastDeclinedTime = localStorage.getItem(
+                        'magesuite-pwa-notification-declined-time'
+                    );
+
+                    if (
+                        !lastDeclinedTime ||
+                        new Date().getTime() - this.options.showAgainTime >=
+                            lastDeclinedTime
+                    ) {
+                        this._showCustomPwaNotification(event);
+                    }
+                }.bind(this)
+            );
         },
 
         /**
@@ -51,18 +61,20 @@ define([
                 content: $.mage.__(this.options.contentText),
                 modalClass: this.options.modalClass,
                 actions: {
-                    always: function() {
+                    always: function () {
                         // some action can be placed here
                     },
                     cancel: this._cancelClickHandler,
                 },
-                buttons: [{
-                    text: $.mage.__(this.options.acceptButtonText),
-                    click: function() {
-                        pwaWidget._acceptClickHandler(deferredPrompt);
-                        this.closeModal(true);
-                    }
-                }]
+                buttons: [
+                    {
+                        text: $.mage.__(this.options.acceptButtonText),
+                        click: function () {
+                            pwaWidget._acceptClickHandler(deferredPrompt);
+                            this.closeModal(true);
+                        },
+                    },
+                ],
             });
         },
 
@@ -72,7 +84,7 @@ define([
          */
         _acceptClickHandler: function (deferredPrompt) {
             deferredPrompt.prompt();
-            deferredPrompt.userChoice.then(function(choiceResult) {
+            deferredPrompt.userChoice.then(function (choiceResult) {
                 if (choiceResult.outcome !== 'accepted') {
                     // some action can be placed here
                 } else {
@@ -86,8 +98,11 @@ define([
          * @private
          */
         _cancelClickHandler: function () {
-            localStorage.setItem('magesuite-pwa-notification-declined-time', new Date().getTime());
-        }
+            localStorage.setItem(
+                'magesuite-pwa-notification-declined-time',
+                new Date().getTime()
+            );
+        },
     });
 
     return $.magesuite.pwaNotification;
