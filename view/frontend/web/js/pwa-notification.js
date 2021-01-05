@@ -12,12 +12,10 @@ define([
         options: {
             popupTpl: template,
             titleText: 'Add to homescreen headline',
-            contentText: $.mage.__(
-                'Now add the MageSuite Demo Shop to your homescreen with one click'
-            ),
+            contentText: 'Now add the MageSuite Demo Shop to your homescreen with one click',
             acceptButtonText: 'Add to homescreen',
             modalClass: '',
-            showAgainTime: 604800000, // a weak
+            showAgainTime: 604800000, // 1 week
         },
 
         /**
