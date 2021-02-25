@@ -58,6 +58,11 @@ $configuration = $viewModel->getConfiguration();
             "src": "<?= $block->getViewFileUrl('Magento_Theme::icon-512x512.png'); ?>",
             "sizes": "512x512",
             "type": "image/png"
+        }, {
+            "src": "<?= $block->getViewFileUrl('Magento_Theme::icon-512x512-maskable.png'); ?>",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
         }
     ]
 }
