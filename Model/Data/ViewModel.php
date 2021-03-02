@@ -42,4 +42,8 @@ class ViewModel implements \Magento\Framework\View\Element\Block\ArgumentInterfa
             '_type' => \Magento\Framework\UrlInterface::URL_TYPE_MEDIA
         ]);
     }
+
+    public function getStoreBaseUrl() {
+        return $this->storeManager->getStore()->getBaseUrl();
+    }
 }
