@@ -22,7 +22,15 @@
         </referenceContainer>
         <referenceContainer name="before.body.end">
             <block name="pwa.service-worker.register" template="MageSuite_Pwa::service-worker/register.phtml" after="-" ifconfig="pwa/general/is_enabled"/>
-            <block name="pwa.custom-notification" template="MageSuite_Pwa::custom-notification.phtml" after="-" ifconfig="pwa/general/is_enabled"/>
+            <block name="pwa.custom-notification" template="MageSuite_Pwa::custom-notification.phtml" after="-" ifconfig="pwa/general/is_enabled">
+                <arguments>
+                    <argument name="js_config" xsi:type="array">
+                        <item name="titleText" xsi:type="string" translate="true">Add to homescreen</item>
+                        <item name="contentText" xsi:type="string" translate="true">Now add the MageSuite Demo Shop to your homescreen with one click</item>
+                        <item name="acceptButtonText" xsi:type="string" translate="true">Add to homescreen</item>
+                    </argument>
+                </arguments>
+            </block>
         </referenceContainer>
     </body>
 </page>
