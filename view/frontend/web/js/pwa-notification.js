@@ -55,8 +55,8 @@ define([
             alert({
                 popupTpl: this.options.popupTpl,
                 clickableOverlay: false,
-                title: $.mage.__(this.options.titleText),
-                content: $.mage.__(this.options.contentText),
+                title: this.options.titleText,
+                content: this.options.contentText,
                 modalClass: this.options.modalClass,
                 actions: {
                     always: function () {
@@ -66,7 +66,7 @@ define([
                 },
                 buttons: [
                     {
-                        text: $.mage.__(this.options.acceptButtonText),
+                        text: this.options.acceptButtonText,
                         click: function () {
                             pwaWidget._acceptClickHandler(deferredPrompt);
                             this.closeModal(true);
