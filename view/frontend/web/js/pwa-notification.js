@@ -36,16 +36,18 @@ define([
         _create: function () {
             var canShowBanner = this._canShowBanner();
 
-            window.addEventListener(
-                'beforeinstallprompt',
-                function (event) {
-                    event.preventDefault();
+            if ('onbeforeinstallprompt' in window) { 
+                window.addEventListener(
+                    'beforeinstallprompt',
+                    function (event) {
+                        event.preventDefault();
 
-                    if (canShowBanner) {
-                        this._showCustomPwaNotification(event);
-                    }
-                }.bind(this)
-            );
+                        if (canShowBanner) {
+                            this._showCustomPwaNotification(event);
+                        }
+                    }.bind(this)
+                );
+            }
 
             if (this.isIOS() && canShowBanner) {
                 this._showIOSguide();
@@ -185,17 +187,11 @@ define([
         _acceptClickHandler: function (deferredPrompt) {
             deferredPrompt.prompt();
 
-            /**
-             * Some actions can be also done based on user's choice
-             
-             * deferredPrompt.userChoice.then(function (choiceResult) {
-             *   if (choiceResult.outcome !== 'accepted') {
-             *       // some action can be placed here
-             *   } else {
-             *       // some action can be placed here
-             *   }
-             * });
-             */
+            deferredPrompt.userChoice.then(function(choice) {
+                if ('dataLayer' in window) {
+                    dataLayer.push('event', 'AddToHomescreen', choice.outcome);
+                }
+            });
         },
 
         /**
