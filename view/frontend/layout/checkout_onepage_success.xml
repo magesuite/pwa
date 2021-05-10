@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="before.body.end">
+            <block name="pwa.ios-a2hs-guide" template="MageSuite_Pwa::ios-a2hs-guide.phtml" after="-" ifconfig="pwa/general/is_enabled">
+                <arguments>
+                    <argument name="js_config" xsi:type="array">
+                        <item name="iOSbanner" xsi:type="array">
+                            <item name="modalContent" xsi:type="string" translate="true">Install this webapp on your %device%: tap %icon% and then "Add to homescreen"</item>
+                            <item name="closeButtonText" xsi:type="string" translate="true">Close</item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
