@@ -1,22 +1,16 @@
 define([
     'jquery',
     'Magento_Ui/js/modal/alert',
-    'text!MageSuite_Pwa/template/pwa-notification.html',
     'text!MageSuite_Pwa/template/a2hs-ios-guide.html',
-    'mage/validation',
     'jquery-ui-modules/widget',
     'jquery/jquery-storageapi',
-], function ($, alert, template, iosGuideTemplate) {
+], function ($, alert, iosGuideTemplate) {
     'use strict';
 
-    $.widget('magesuite.pwaNotification', {
+    $.widget('magesuite.iosAthsGuide', {
         options: {
-            popupTpl: template,
             iosGuideTpl: iosGuideTemplate,
-            titleText: 'Add to homescreen headline',
-            contentText: 'Now add the MageSuite Demo Shop to your homescreen with one click',
-            acceptButtonText: 'Add to homescreen',
-            modalClass: '',
+            showAgainTime: 2592000000, // 30 days
             iOSbanner: {
                 iosTransferIconPath: 'images/icons/ios/transfer.svg',
                 modalTitle: '',
@@ -26,7 +20,6 @@ define([
                 closeButtonIcon: 'images/icons/close.svg',
                 modalClass: '',
             },
-            showAgainTime: 2592000000, // 30 days
         },
 
         /**
@@ -34,22 +27,7 @@ define([
          * @private
          */
         _create: function () {
-            var canShowBanner = this._canShowBanner();
-
-            if ('onbeforeinstallprompt' in window) { 
-                window.addEventListener(
-                    'beforeinstallprompt',
-                    function (event) {
-                        event.preventDefault();
-
-                        if (canShowBanner) {
-                            this._showCustomPwaNotification(event);
-                        }
-                    }.bind(this)
-                );
-            }
-
-            if (this.isIOS() && canShowBanner) {
+            if (this.isIOS() && this._canShowBanner()) {
                 this._showIOSguide();
             }
         },
@@ -82,36 +60,6 @@ define([
                 );
 
             return !isStandalone && (!lastDeclinedTime || new Date().getTime() - this.options.showAgainTime >= lastDeclinedTime);
-        },
-
-        /**
-         * Template for PWA custom notification is based on custom modal template.
-         * It can be changed by overriding MageSuite_Pwa/template/pwa-notification.html file or by specifying path to own template options
-         * @private
-         */
-        _showCustomPwaNotification: function (deferredPrompt) {
-            var deferredPrompt = deferredPrompt;
-            var $widget = this;
-
-            alert({
-                popupTpl: this.options.popupTpl,
-                clickableOverlay: false,
-                title: this.options.titleText,
-                content: this.options.contentText,
-                modalClass: this.options.modalClass,
-                actions: {
-                    cancel: this._cancelClickHandler,
-                },
-                buttons: [
-                    {
-                        text: this.options.acceptButtonText,
-                        click: function () {
-                            $widget._acceptClickHandler(deferredPrompt);
-                            this.closeModal(true);
-                        },
-                    },
-                ],
-            });
         },
 
         /**
@@ -181,20 +129,6 @@ define([
         },
 
         /**
-         * Show native prompt
-         * @private
-         */
-        _acceptClickHandler: function (deferredPrompt) {
-            deferredPrompt.prompt();
-
-            deferredPrompt.userChoice.then(function(choice) {
-                if ('dataLayer' in window) {
-                    dataLayer.push('event', 'AddToHomescreen', choice.outcome);
-                }
-            });
-        },
-
-        /**
          * Set info in storage that pwa notification was closed. Show it again after options.showAgainTime
          * @private
          */
@@ -206,5 +140,5 @@ define([
         },
     });
 
-    return $.magesuite.pwaNotification;
+    return $.magesuite.iosAthsGuide;
 });
