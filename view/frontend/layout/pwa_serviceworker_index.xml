@@ -5,17 +5,17 @@
         <referenceContainer name="root">
             <block class="MageSuite\Pwa\Block\Data" name="pwa.service-worker" template="MageSuite_Pwa::service-worker.phtml" ifconfig="pwa/general/is_enabled">
                 <arguments>
-                    <argument xsi:type="object" name="view_model">MageSuite\Pwa\Model\Data\ViewModel</argument>
+                    <argument xsi:type="object" name="view_model">MageSuite\Pwa\ViewModel\Manifest</argument>
                 </arguments>
                 <block class="MageSuite\Pwa\Block\Data" name="pwa.service-worker.workbox" template="MageSuite_Pwa::service-worker/workbox.phtml">
                     <arguments>
-                        <argument xsi:type="object" name="view_model">MageSuite\Pwa\Model\Data\ViewModel</argument>
+                        <argument xsi:type="object" name="view_model">MageSuite\Pwa\ViewModel\Manifest</argument>
                     </arguments>
                 </block>
                 <block class="MageSuite\Pwa\Block\Data" name="pwa.service-worker.static" template="MageSuite_Pwa::service-worker/static.phtml"/>
                 <block class="MageSuite\Pwa\Block\Data" name="pwa.service-worker.media" template="MageSuite_Pwa::service-worker/media.phtml">
                     <arguments>
-                        <argument xsi:type="object" name="view_model">MageSuite\Pwa\Model\Data\ViewModel</argument>
+                        <argument xsi:type="object" name="view_model">MageSuite\Pwa\ViewModel\Manifest</argument>
                     </arguments>
                 </block>
                 <block class="MageSuite\Pwa\Block\Data" name="pwa.service-worker.mobile-navigation" template="MageSuite_Pwa::service-worker/mobile-navigation.phtml"/>
@@ -24,7 +24,7 @@
                 <block class="MageSuite\Pwa\Block\Data" name="pwa.service-worker.offline-pages" template="MageSuite_Pwa::service-worker/offline-pages.phtml"/>
                 <block class="MageSuite\Pwa\Block\Data" name="pwa.service-worker.offline-fallback" template="MageSuite_Pwa::service-worker/offline-fallback.phtml">
                     <arguments>
-                        <argument xsi:type="object" name="view_model">MageSuite\Pwa\Model\Data\ViewModel</argument>
+                        <argument xsi:type="object" name="view_model">MageSuite\Pwa\ViewModel\Manifest</argument>
                     </arguments>
                 </block>
             </block>

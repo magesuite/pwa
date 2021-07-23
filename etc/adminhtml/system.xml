@@ -79,7 +79,18 @@
                     <comment>General theme color of the application, used as the status bar background.</comment>
                     <validate>required-entry</validate>
                 </field>
-                <field id="debug_mode_is_enabled" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="categories" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Categories</label>
+                    <depends>
+                        <field id="pwa/general/is_enabled">1</field>
+                    </depends>
+                    <comment><![CDATA[
+                        List of categorizations you want to apply to your site. Categories should be lower cased and comma separated.
+                        There are no pre-defined categories, but the W3C maintains a <a href="https://github.com/w3c/manifest/wiki/Categories">list of known categories</a>.
+                    ]]></comment>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="debug_mode_is_enabled" translate="label" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Debug mode enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <depends>
