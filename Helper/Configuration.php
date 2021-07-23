@@ -71,6 +71,13 @@ class Configuration extends \Magento\Framework\App\Helper\AbstractHelper
         return (string)$this->getConfig()->getThemeColor();
     }
 
+    public function getCategories()
+    {
+        $value = $this->getConfig()->getCategories();
+
+        return explode(',', $value);
+    }
+
     public function isDebugModeEnabled()
     {
         return (bool)$this->getConfig()->getDebugModeIsEnabled();

@@ -9,13 +9,13 @@
         <referenceContainer name="head.additional">
             <block name="pwa.theme-color" template="MageSuite_Pwa::theme-color.phtml" ifconfig="pwa/general/is_enabled">
                 <arguments>
-                    <argument name="view_model" xsi:type="object">MageSuite\Pwa\Model\Data\ViewModel</argument>
+                    <argument name="view_model" xsi:type="object">MageSuite\Pwa\ViewModel\Manifest</argument>
                 </arguments>
             </block>
             <block name="pwa.manifest.meta" template="MageSuite_Pwa::manifest-meta.phtml" ifconfig="pwa/general/is_enabled">
                 <block name="pwa.manifest.title" template="MageSuite_Pwa::apple-mobile-web-app-title.phtml">
                     <arguments>
-                        <argument name="view_model" xsi:type="object">MageSuite\Pwa\Model\Data\ViewModel</argument>
+                        <argument name="view_model" xsi:type="object">MageSuite\Pwa\ViewModel\Manifest</argument>
                     </arguments>
                 </block>
             </block>
