@@ -83,53 +83,8 @@ class Manifest implements \Magento\Framework\View\Element\Block\ArgumentInterfac
             'categories' => $this->configuration->getCategories(),
             'icons' => [
                 [
-                    'src' => $this->getViewFileUrl('Magento_Theme::favicon-16x16.png'),
-                    'sizes' => '16x16',
-                    'type' => 'image/png'
-                ],
-                [
-                    'src' => $this->getViewFileUrl('Magento_Theme::favicon-32x32.png'),
-                    'sizes' => '32x32',
-                    'type' => 'image/png'
-                ],
-                [
-                    'src' => $this->getViewFileUrl('Magento_Theme::favicon.ico'),
-                    'sizes' => '48x48',
-                    'type' => 'image/x-icon'
-                ],
-                [
-                    'src' => $this->getViewFileUrl('Magento_Theme::icon-128x128.png'),
-                    'sizes' => '128x128',
-                    'type' => 'image/png'
-                ],
-                [
-                    'src' => $this->getViewFileUrl('Magento_Theme::icon-144x144.png'),
-                    'sizes' => '144x144',
-                    'type' => 'image/png'
-                ],
-                [
-                    'src' => $this->getViewFileUrl('Magento_Theme::mstile-150x150.png'),
-                    'sizes' => '150x150',
-                    'type' => 'image/png'
-                ],
-                [
-                    'src' => $this->getViewFileUrl('Magento_Theme::icon-152x152.png'),
-                    'sizes' => '152x152',
-                    'type' => 'image/png'
-                ],
-                [
-                    'src' => $this->getViewFileUrl('Magento_Theme::apple-touch-icon.png'),
-                    'sizes' => '180x180',
-                    'type' => 'image/png'
-                ],
-                [
                     'src' => $this->getViewFileUrl('Magento_Theme::android-chrome-192x192.png'),
                     'sizes' => '192x192',
-                    'type' => 'image/png'
-                ],
-                [
-                    'src' => $this->getViewFileUrl('Magento_Theme::android-chrome-256x256.png'),
-                    'sizes' => '256x256',
                     'type' => 'image/png'
                 ],
                 [
