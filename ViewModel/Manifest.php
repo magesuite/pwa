@@ -75,7 +75,7 @@ class Manifest implements \Magento\Framework\View\Element\Block\ArgumentInterfac
         $config = [
             'name' => $this->configuration->getName(),
             'short_name' => $this->configuration->getShortName(),
-            'start_url' => $this->configuration->getStartUrl() . '?utm_source=homescreen',
+            'start_url' => $this->configuration->getRedirectUrl(),
             'display' => $this->configuration->getDisplayMode(),
             'background_color' => $this->configuration->getBackgroundColor(),
             'theme_color' => $this->configuration->getThemeColor(),

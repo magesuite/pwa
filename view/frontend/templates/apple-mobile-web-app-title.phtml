@@ -4,4 +4,4 @@
 $viewModel = $block->getViewModel();
 $configuration = $viewModel->getConfiguration();
 ?>
-<meta name="apple-mobile-web-app-title" content="<?= $configuration->getName(); ?>">
+<meta name="apple-mobile-web-app-title" content="<?= /* @noEscape */ $configuration->getName(); ?>">

@@ -8,14 +8,25 @@ class CmsPage extends \Magento\Cms\Model\Config\Source\Page
     {
         $options = parent::toOptionArray();
 
-        array_unshift(
-            $options,
+        return [
             [
-                'value' => '',
-                'label' => 'Default CMS Page'
+                'label' => 'Other',
+                'value' => [
+                    ['label' => 'Custom URL', 'value' => 'custom']
+                ]
+            ],
+            [
+                'label' => 'CMS pages',
+                'value' => array_merge(
+                    [
+                        [
+                        'label' => 'Default CMS Page',
+                        'value' => ''
+                            ]
+                    ],
+                    $options
+                )
             ]
-        );
-
-        return $options;
+        ];
     }
 }
