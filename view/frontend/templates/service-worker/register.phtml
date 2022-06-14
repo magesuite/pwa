@@ -4,6 +4,6 @@ $url = $block->getBaseUrl() . 'service-worker.js';
 ?>
 <script>
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('<?= $url; ?>');
+    navigator.serviceWorker.register('<?= /* @noEscape */ $url ?>');
 }
 </script>

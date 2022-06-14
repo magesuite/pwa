@@ -39,14 +39,36 @@
                     <validate>required-entry</validate>
                 </field>
                 <field id="start_url" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
-                    <label>Start URL</label>
+                    <label>Start URL when not logged in</label>
                     <source_model>MageSuite\Pwa\Model\Config\Source\CmsPage</source_model>
                     <depends>
                         <field id="pwa/general/is_enabled">1</field>
                     </depends>
-                    <comment>Page which should be loaded when users open the application.</comment>
+                    <comment>Page which should be loaded when users open the application and is not logged in.</comment>
                 </field>
-                <field id="offline_page_url" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="custom_start_url" translate="label" type="text" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Start URL when not logged in</label>
+                    <depends>
+                        <field id="pwa/general/start_url">custom</field>
+                    </depends>
+                    <comment></comment>
+                </field>
+                <field id="start_url_when_logged_in" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Start URL when logged in</label>
+                    <source_model>MageSuite\Pwa\Model\Config\Source\CmsPage</source_model>
+                    <depends>
+                        <field id="pwa/general/is_enabled">1</field>
+                    </depends>
+                    <comment>Page which should be loaded when users open the application and is logged in.</comment>
+                </field>
+                <field id="custom_start_url_when_logged_in" translate="label" type="text" sortOrder="65" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Start URL when logged in</label>
+                    <depends>
+                        <field id="pwa/general/start_url_when_logged_in">custom</field>
+                    </depends>
+                    <comment></comment>
+                </field>
+                <field id="offline_page_url" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Offline page URL</label>
                     <source_model>MageSuite\Pwa\Model\Config\Source\CmsPage</source_model>
                     <depends>
@@ -54,7 +76,7 @@
                     </depends>
                     <comment>Page which should be shown when user device is offline.</comment>
                 </field>
-                <field id="display_mode" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="display_mode" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Display mode</label>
                     <source_model>MageSuite\Pwa\Model\Config\Source\DisplayMode</source_model>
                     <depends>
@@ -63,7 +85,7 @@
                     <comment>The way the installed application will be displayed. Please refer to https://web.dev/add-manifest/#display for a detailed description of each mode.</comment>
                     <validate>required-entry</validate>
                 </field>
-                <field id="background_color" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="background_color" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Background color</label>
                     <depends>
                         <field id="pwa/general/is_enabled">1</field>
@@ -71,7 +93,7 @@
                     <comment>Background of the splash screen, the one displayed when the application is loading for the first time.</comment>
                     <validate>required-entry</validate>
                 </field>
-                <field id="theme_color" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="theme_color" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Theme color</label>
                     <depends>
                         <field id="pwa/general/is_enabled">1</field>
@@ -79,7 +101,7 @@
                     <comment>General theme color of the application, used as the status bar background.</comment>
                     <validate>required-entry</validate>
                 </field>
-                <field id="categories" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="categories" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Categories</label>
                     <depends>
                         <field id="pwa/general/is_enabled">1</field>
@@ -90,7 +112,7 @@
                     ]]></comment>
                     <validate>required-entry</validate>
                 </field>
-                <field id="debug_mode_is_enabled" translate="label" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="debug_mode_is_enabled" translate="label" type="select" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Debug mode enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <depends>

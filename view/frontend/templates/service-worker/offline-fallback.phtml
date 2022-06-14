@@ -9,7 +9,7 @@ $viewModel = $block->getViewModel();
 $configuration = $viewModel->getConfiguration();
 ?>
 <script>
-const offlinePageUrl = '<?= $configuration->getOfflinePageUrl(); ?>';
+const offlinePageUrl = '<?= /* @noEscape */ $configuration->getOfflinePageUrl() ?>';
 
 workbox.precaching.precacheAndRoute([
     offlinePageUrl

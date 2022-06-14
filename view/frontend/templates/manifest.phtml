@@ -3,4 +3,4 @@
 /** @var \MageSuite\Pwa\ViewModel\Manifest $viewModel */
 $viewModel = $block->getViewModel();
 ?>
-<?= $viewModel->getJsonConfig() ?>
+<?= /* @noEscape */ $viewModel->getJsonConfig() ?>

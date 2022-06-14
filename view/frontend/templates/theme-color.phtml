@@ -4,5 +4,5 @@
 $viewModel = $block->getViewModel();
 $configuration = $viewModel->getConfiguration();
 ?>
-<meta name="apple-mobile-web-app-status-bar-style" content="<?= $configuration->getThemeColor(); ?>"/>
-<meta name="theme-color" content="<?= $configuration->getThemeColor(); ?>"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="<?=/* @noEscape */ $configuration->getThemeColor(); ?>"/>
+<meta name="theme-color" content="<?=/* @noEscape */ $configuration->getThemeColor(); ?>"/>

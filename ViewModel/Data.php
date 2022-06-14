@@ -38,13 +38,15 @@ class Data implements \Magento\Framework\View\Element\Block\ArgumentInterface
         return $this->configuration;
     }
 
-    public function getMediaBaseUrl() {
+    public function getMediaBaseUrl()
+    {
         return $this->urlBuilder->getBaseUrl([
             '_type' => \Magento\Framework\UrlInterface::URL_TYPE_MEDIA
         ]);
     }
 
-    public function getStoreBaseUrl() {
+    public function getStoreBaseUrl()
+    {
         return $this->storeManager->getStore()->getBaseUrl();
     }
 }

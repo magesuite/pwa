@@ -42,11 +42,31 @@ class Configuration extends \Magento\Framework\App\Helper\AbstractHelper
         return (string)$this->getConfig()->getDescription();
     }
 
-    public function getStartUrl()
+    public function getStartUrlForNotLoggedIn()
     {
         $pageIdentifier = $this->getConfig()->getStartUrl();
 
+        if ($pageIdentifier === 'custom') {
+            return $this->_getUrl($this->getConfig()->getCustomStartUrl());
+        }
+
         return $this->getPageUrl($pageIdentifier);
+    }
+
+    public function getStartUrlForLoggedIn()
+    {
+        $pageIdentifier = $this->getConfig()->getStartUrlWhenLoggedIn();
+
+        if ($pageIdentifier === 'custom') {
+            return $this->_getUrl($this->getConfig()->getCustomStartUrlWhenLoggedIn());
+        }
+
+        return $this->getPageUrl($pageIdentifier);
+    }
+
+    public function getRedirectUrl()
+    {
+        return $this->_getUrl('pwa/redirect/index');
     }
 
     public function getOfflinePageUrl()
