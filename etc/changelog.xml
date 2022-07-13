@@ -1,0 +1,18 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:MageSuite_Changelog:etc/changelog.xsd">
+    <module id="MageSuite_Pwa" name="MageSuite_Pwa">
+        <changelog>
+            <tag version="1.2.0" date="2022-07-11">
+                <entry>
+                    <type>FEATURE</type>
+                    <overview>Refactor PWA guide on success page</overview>
+                        <description>
+                            Introduce extended Install PWA guide. 
+                            Refactor script and template according to the new designs, 
+                            add possibility to add different static blocks or texts for iOS, Android and desktop.
+                            Set showAgainTime (time to show the panel again after it was closed) to 0 (this was 30 days before)
+                        </description>
+                </entry>
+            </tag>
+        </changelog>
+    </module>
+</config>

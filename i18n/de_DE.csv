@@ -1,3 +1,11 @@
 General,Allgemein
 Enabled,Aktiviert
 Description,Beschreibung
+Install this webapp on your %device%,Installieren Sie diese Webanwendung auf Ihrem %device%
+Tap at the bottom of the banner on the Thank You page on <span class="cs-pwa-guide__install-icon"></span> and then tap ""Go to Home Screen"".,Tippen Sie unten beim Banner auf der Danke-Seite  auf <span class="cs-pwa-guide__install-icon"></span> und dann auf ""Zum Home-Bildschirm""
+Install this webapp on your phone,Installieren Sie diese Webapp auf Ihrem Handy
+Install this webapp on your desktop,Installieren Sie diese Webapp auf Ihrem Desktop
+Tap <b>Install</b>. <br>Follow the instructions on the screen.,Tippen Sie auf <b>Installieren</b>. <br>Folgen Sie der Anleitung auf dem Bildschirm.
+Click ""Install"" <span class="cs-pwa-guide__install-icon"></span> in the upper-right corner of the address bar. Follow the on-screen instructions to install the PWA.,Klicken Sie rechts oben in der Adressleiste auf ""Installieren"" <span class="cs-pwa-guide__install-icon"></span> Folgen Sie der Anleitung auf dem Bildschirm, um die PWA zu installieren.
+"Install PWA guide","PWA Installationsanleitung"
+"Show PWA guide","PWA-Leitfaden anzeigen"

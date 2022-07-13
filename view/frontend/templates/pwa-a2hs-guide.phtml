@@ -1,0 +1,143 @@
+<?php
+$jsConfig = $block->getJsConfig();
+$cmsBlock = $block->getLayout()->createBlock(
+    \MageSuite\ThemeHelpers\Block\Cms\CacheableBlock::class
+);
+
+$iOSBlockHtml = $cmsBlock->setBlockId('ppwa_guide_ios')->toHtml();
+$androidBlockHtml = $cmsBlock->setBlockId('ppwa_guide_android')->toHtml();
+$desktopBlockHtml = $cmsBlock->setBlockId('ppwa_guide_desktop')->toHtml();
+?>
+
+<div class="cs-pwa-a2hs-guide" data-bind="scope: 'pwa-a2hs-guide'">
+    <div class="cs-pwa-a2hs-guide__wrapper" data-bind="css: {'_active': canShowGuide}">
+        <div class="cs-pwa-a2hs-guide__content">
+            <?= $block->getChildHtml('pwa.a2hs.guide.hotspot.before'); ?>
+            <div class="cs-pwa-a2hs-guide__icons">
+                <div class="cs-pwa-a2hs-guide__icon-wrapper">
+                    <?= $block->getChildHtml('pwa.a2hs.guide.icon'); ?>
+                </div>
+            </div>
+            <div class="cs-pwa-a2hs-guide__message-wrapper">
+                <div 
+                    class="cs-pwa-a2hs-guide__message cs-pwa-a2hs-guide__message--ios" 
+                    data-bind="
+                        css: {'_active': isIOS()},
+                        mageInit: {
+                            'collapsible': {
+                                'animate': true,
+                                'mediaQueryScope':'(max-width: 767px)'
+                            }
+                        }"
+                    >
+                    <?php if ($iOSBlockHtml) { ?>
+                        <span class="cs-pwa-a2hs-guide__message-title" data-modal-trigger="ios" data-bind="i18n: headerIOS"></span>
+                        <div class="cs-pwa-a2hs-guide__modal" data-bind="mageInit: {
+                            'Magento_Ui/js/modal/modal':{
+                                'type': 'popup',
+                                'title': '<?= /* @noEscape */ __("PWA Install guide") ?>',
+                                'trigger': '[data-modal-trigger=ios]',
+                                'responsive': true
+                            }}">
+                            <div class="content">
+                                <?= /* @noEscape */ $iOSBlockHtml ?>
+                            </div>
+                        </div>
+                    <?php } else { ?>
+                        <div data-role="title">
+                            <a href="#" class="cs-pwa-a2hs-guide__next" data-bind="click: toggleCollapse, css: {'_hidden': isDescriptionVisible}">
+                                <?= $block->getChildHtml('pwa.a2hs.guide.next.icon'); ?>
+                            </a>
+                            <span class="cs-pwa-a2hs-guide__message-title" data-bind="i18n: headerIOS, click: toggleCollapse"></span>
+                        </div>
+                        <span class="cs-pwa-a2hs-guide__message-description" data-role="content" data-bind="html: descriptionIOS"></span>
+                    <?php } ?>
+                </div>
+                <div 
+                    class="cs-pwa-a2hs-guide__message cs-pwa-a2hs-guide__message--android" 
+                    data-bind="
+                        css: {'_active': isAndroid()},
+                        mageInit: {
+                            'collapsible': {
+                                'animate': true,
+                                'mediaQueryScope':'(max-width: 767px)'
+                            }
+                        }"
+                >
+                    <?php if ($androidBlockHtml) { ?>
+                        <span class="cs-pwa-a2hs-guide__message-title" data-modal-trigger="android" data-bind="i18n: headerAndroid"></span>
+                        <div class="cs-pwa-a2hs-guide__modal" data-bind="mageInit: {
+                            'Magento_Ui/js/modal/modal':{
+                                'type': 'popup',
+                                'title': '<?= /* @noEscape */  __("PWA Install guide") ?>',
+                                'trigger': '[data-modal-trigger=android]',
+                                'responsive': true
+                            }}">
+                            <div class="content">
+                                <?= /* @noEscape */ $androidBlockHtml ?>
+                            </div>
+                        </div>
+                    <?php } else { ?>
+                        <div data-role="title">
+                            <a href="#" class="cs-pwa-a2hs-guide__next" data-bind="click: toggleCollapse, css: {'_hidden': isDescriptionVisible}">
+                                <?= $block->getChildHtml('pwa.a2hs.guide.next.icon'); ?>
+                            </a>
+                            <span class="cs-pwa-a2hs-guide__message-title" data-bind="i18n: headerAndroid, click: toggleCollapse"></span>
+                        </div>
+                        <span class="cs-pwa-a2hs-guide__message-description" data-role="content" data-bind="html: descriptionAndroid"></span>
+                    <?php } ?>
+                </div>
+                <div 
+                    class="cs-pwa-a2hs-guide__message cs-pwa-a2hs-guide__message--desktop" 
+                    data-bind="
+                        css: {'_active': isDesktop()},
+                        mageInit: {
+                            'collapsible': {
+                                'animate': true,
+                                'mediaQueryScope':'(max-width: 767px)'
+                            }
+                        }"
+                >
+                    <?php if ($desktopBlockHtml) { ?>
+                        <span class="cs-pwa-a2hs-guide__message-title" data-modal-trigger="desktop" data-bind="i18n: headerDesktop"></span>
+                        <button class="cs-pwa-a2hs-guide__button cs-pwa-a2hs-guide__button--showmore" data-modal-trigger="desktop">
+                            <span class="cs-pwa-a2hs-guide__button-span" data-bind="i18n: showmoreText"></span>
+                            <?= $block->getChildHtml('pwa.a2hs.guide.button.icon'); ?>
+                        </button>
+                        <div class="cs-pwa-a2hs-guide__modal" data-bind="mageInit: {
+                            'Magento_Ui/js/modal/modal':{
+                                'type': 'popup',
+                                'title': '<?= /* @noEscape */  __("PWA Install guide") ?>',
+                                'trigger': '[data-modal-trigger=desktop]',
+                                'responsive': true
+                            }}">
+                            <div class="content">
+                                <?= /* @noEscape */ $desktopBlockHtml ?>
+                            </div>
+                        </div>
+                    <?php } else { ?>
+                        <div data-role="title">
+                            <a href="#" class="cs-pwa-a2hs-guide__next" data-bind="click: toggleCollapse, css: {'_hidden': isDescriptionVisible}">
+                                <?= $block->getChildHtml('pwa.a2hs.guide.next.icon'); ?>
+                            </a>
+                            <span class="cs-pwa-a2hs-guide__message-title" data-bind="i18n: headerDesktop, click: toggleCollapse"></span>
+                        </div>
+                        <span class="cs-pwa-a2hs-guide__message-description" data-role="content" data-bind="html: descriptionDesktop"></span>
+                    <?php } ?>
+                </div>
+            </div>
+            <div class="cs-pwa-a2hs-guide__button-wrapper">
+                <button class="cs-pwa-a2hs-guide__button cs-pwa-a2hs-guide__button--decline" data-bind="click: closePanel, css: {'_active': isDescriptionVisible}">
+                    <span class="cs-pwa-a2hs-guide__button-span" data-bind="i18n: declineText"></span>
+                    <?= $block->getChildHtml('pwa.a2hs.guide.button.icon'); ?>
+                </button>
+            </div>
+            <a href="#" class="cs-pwa-a2hs-guide__close" data-bind="click: closePanel, css: {'_active': isDescriptionVisible}">
+                <?= $block->getChildHtml('pwa.a2hs.guide.close.icon'); ?>
+            </a>
+        </div>
+        <?= $block->getChildHtml('pwa.a2hs.guide.hotspot.after'); ?>
+    </div>
+</div>
+
+<?= $block->getChildHtml('pwa.a2hs.guide.js.init'); ?>

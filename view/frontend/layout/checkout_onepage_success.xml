@@ -1,16 +1,41 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceContainer name="before.body.end">
-            <block name="pwa.ios-a2hs-guide" template="MageSuite_Pwa::ios-a2hs-guide.phtml" after="-" ifconfig="pwa/general/is_enabled">
-                <arguments>
-                    <argument name="js_config" xsi:type="array">
-                        <item name="iOSbanner" xsi:type="array">
-                            <item name="modalContent" xsi:type="string" translate="true">Install this webapp on your %device%: tap %icon% and then "Add to homescreen"</item>
-                            <item name="closeButtonText" xsi:type="string" translate="true">Close</item>
-                        </item>
-                    </argument>
-                </arguments>
+        <referenceContainer name="main">
+            <block name="pwa.a2hs.guide" template="MageSuite_Pwa::pwa-a2hs-guide.phtml" before="-">
+                <block class="MageSuite\ThemeHelpers\Block\Icon" name="pwa.a2hs.guide.icon">
+                    <arguments>
+                        <argument name="icon_url" xsi:type="string">images/icons/pwa-a2hs-guide/rebuy.svg</argument>
+                        <argument name="css_class" xsi:type="string">cs-pwa-a2hs-guide__icon cs-pwa-a2hs-guide__icon--animate</argument>
+                        <argument name="inlined" xsi:type="boolean">true</argument>
+                        <argument name="lazy_loaded" xsi:type="boolean">false</argument>
+                    </arguments>
+                </block>
+                <block class="MageSuite\ThemeHelpers\Block\Icon" name="pwa.a2hs.guide.close.icon">
+                    <arguments>
+                        <argument name="icon_url" xsi:type="string">images/icons/pwa-a2hs-guide/close.svg</argument>
+                        <argument name="css_class" xsi:type="string">cs-pwa-a2hs-guide__close-icon</argument>
+                        <argument name="inlined" xsi:type="boolean">true</argument>
+                        <argument name="lazy_loaded" xsi:type="boolean">false</argument>
+                    </arguments>
+                </block>
+                <block class="MageSuite\ThemeHelpers\Block\Icon" name="pwa.a2hs.guide.next.icon">
+                    <arguments>
+                        <argument name="icon_url" xsi:type="string">images/icons/pwa-a2hs-guide/next.svg</argument>
+                        <argument name="css_class" xsi:type="string">cs-pwa-a2hs-guide__next-icon</argument>
+                        <argument name="inlined" xsi:type="boolean">true</argument>
+                        <argument name="lazy_loaded" xsi:type="boolean">false</argument>
+                    </arguments>
+                </block>
+                <block class="MageSuite\ThemeHelpers\Block\Icon" name="pwa.a2hs.guide.button.icon">
+                    <arguments>
+                        <argument name="icon_url" xsi:type="string">images/icons/button/icon-default-secondary.svg</argument>
+                        <argument name="css_class" xsi:type="string">cs-pwa-a2hs-guide__button-icon</argument>
+                        <argument name="inlined" xsi:type="boolean">true</argument>
+                        <argument name="lazy_loaded" xsi:type="boolean">false</argument>
+                    </arguments>
+                </block>
+                <block name="pwa.a2hs.guide.js.init" template="MageSuite_Pwa::pwa-a2hs-guide-js-init.phtml" />
             </block>
         </referenceContainer>
     </body>
