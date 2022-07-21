@@ -32,6 +32,9 @@ $desktopBlockHtml = $cmsBlock->setBlockId('pwa_guide_desktop')->toHtml();
                     >
                     <?php if ($iOSBlockHtml) { ?>
                         <span class="cs-pwa-a2hs-guide__message-title" data-modal-trigger="ios" data-bind="i18n: headerIOS"></span>
+                        <a href="#" class="cs-pwa-a2hs-guide__next">
+                            <?= $block->getChildHtml('pwa.a2hs.guide.next.icon'); ?>
+                        </a>
                         <div class="cs-pwa-a2hs-guide__modal" data-bind="mageInit: {
                             'Magento_Ui/js/modal/modal':{
                                 'type': 'popup',
@@ -66,6 +69,9 @@ $desktopBlockHtml = $cmsBlock->setBlockId('pwa_guide_desktop')->toHtml();
                 >
                     <?php if ($androidBlockHtml) { ?>
                         <span class="cs-pwa-a2hs-guide__message-title" data-modal-trigger="android" data-bind="i18n: headerAndroid"></span>
+                        <a href="#" class="cs-pwa-a2hs-guide__next">
+                            <?= $block->getChildHtml('pwa.a2hs.guide.next.icon'); ?>
+                        </a>
                         <div class="cs-pwa-a2hs-guide__modal" data-bind="mageInit: {
                             'Magento_Ui/js/modal/modal':{
                                 'type': 'popup',
@@ -104,6 +110,9 @@ $desktopBlockHtml = $cmsBlock->setBlockId('pwa_guide_desktop')->toHtml();
                             <span class="cs-pwa-a2hs-guide__button-span" data-bind="i18n: showmoreText"></span>
                             <?= $block->getChildHtml('pwa.a2hs.guide.button.icon'); ?>
                         </button>
+                        <a href="#" class="cs-pwa-a2hs-guide__next">
+                            <?= $block->getChildHtml('pwa.a2hs.guide.next.icon'); ?>
+                        </a>
                         <div class="cs-pwa-a2hs-guide__modal" data-bind="mageInit: {
                             'Magento_Ui/js/modal/modal':{
                                 'type': 'popup',

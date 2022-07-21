@@ -15,10 +15,21 @@
             </tag>
             <tag version="1.2.1" date="2022-07-15">
                 <entry>
-                    <type>FIXE</type>
+                    <type>FIX</type>
                     <overview>Fix static block names in pwa-a2hs-guide.phtml</overview>
                 </entry>
             </tag>
+            <tag version="1.2.2" date="2022-07-21">
+                <entry>
+                    <type>FIX</type>
+                    <overview>Fix translations and arrows for pwa-a2hs-guide</overview>
+                    <description>
+                        Fix for: Some wordings are not translated into German
+                        Fix for: Missing arrow when a static block is added (mobile)
+                    </description>
+                </entry>
+            </tag>
+        </changelog>
         </changelog>
     </module>
 </config>
