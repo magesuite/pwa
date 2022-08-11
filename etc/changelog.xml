@@ -6,8 +6,8 @@
                     <type>FEATURE</type>
                     <overview>Refactor PWA guide on success page</overview>
                         <description>
-                            Introduce extended Install PWA guide. 
-                            Refactor script and template according to the new designs, 
+                            Introduce extended Install PWA guide.
+                            Refactor script and template according to the new designs,
                             add possibility to add different static blocks or texts for iOS, Android and desktop.
                             Set showAgainTime (time to show the panel again after it was closed) to 0 (this was 30 days before)
                         </description>
@@ -27,6 +27,12 @@
                         Fix for: Some wordings are not translated into German
                         Fix for: Missing arrow when a static block is added (mobile)
                     </description>
+                </entry>
+            </tag>
+            <tag version="1.2.3" date="2022-08-10">
+                <entry>
+                    <type>FIX</type>
+                    <overview>Add add2homescreen guide only if feature is enabled</overview>
                 </entry>
             </tag>
         </changelog>
