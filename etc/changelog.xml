@@ -35,6 +35,13 @@
                     <overview>Add add2homescreen guide only if feature is enabled</overview>
                 </entry>
             </tag>
+            <tag version="1.2.4" date="2022-11-16">
+                <entry>
+                    <type>FIX</type>
+                    <overview>Add missing translation for guide</overview>
+                    <ticket_id>MGS-4646</ticket_id>
+                </entry>
+            </tag>
         </changelog>
     </module>
 </config>
