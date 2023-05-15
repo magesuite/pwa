@@ -16,19 +16,21 @@ define([
         initialize: function () {
             this._super();
 
-            // if (!this.isIOS()) {
-            //     return;
-            // }
+            if (!this.isIOS() || !this.canShowPrompt()) {
+                return;
+            }
+
+            this.allowedDisplaysBeforeHiding = parseInt(this.allowedDisplaysBeforeHiding, 10);
+            this.hidingTime = parseInt(this.hidingTime, 10);
+            this.showTimeout = parseInt(this.showTimeout, 10);
 
             this.displayCountInfoName = 'magesuite-ios-pwa-prompt-display-count';
 			this.declinedTimeInfoName = 'magesuite-ios-pwa-prompt-declined-time';
 
-            if (this.canShowGuide()) {
-                this.handleDisplaysCount();
-                setTimeout(this.showPrompt.bind(this), this.showTimeout);
-            }
-
             this.lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            this.handleDisplaysCount();
+            setTimeout(this.showPrompt.bind(this), this.showTimeout);
 
             return this;
         },
@@ -61,7 +63,7 @@ define([
             || (navigator.userAgent.includes('Mac') && 'ontouchend' in document);
         },
 
-        canShowGuide: function() {
+        canShowPrompt: function() {
             const isStandalone = ('standalone' in window.navigator) && (window.navigator.standalone);
             const lastDeclinedTime = parseInt(localStorage.getItem('magesuite-ios-pwa-prompt-declined-time'), 10);
             return !isStandalone && (!lastDeclinedTime || new Date().getTime() + this.showTimeout >= lastDeclinedTime + this.hidingTime);
