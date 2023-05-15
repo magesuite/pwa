@@ -59,7 +59,7 @@ define([
                 'iPad',
                 'iPhone',
                 'iPod'
-            ].includes(navigator.platform) 
+            ].includes(navigator.platform)
             || (navigator.userAgent.includes('Mac') && 'ontouchend' in document);
         },
 

@@ -54,7 +54,7 @@ define([
 
             this.isDescriptionVisible(false);
             if (this.getCurrentDevice() === 'desktop') {
-                this.isDescriptionVisible(true); 
+                this.isDescriptionVisible(true);
             }
 
             return this;
@@ -80,7 +80,7 @@ define([
                 'iPad',
                 'iPhone',
                 'iPod'
-            ].includes(navigator.platform) 
+            ].includes(navigator.platform)
             || (navigator.userAgent.includes('Mac') && 'ontouchend' in document);
         },
 
@@ -98,7 +98,7 @@ define([
         },
 
         /**
-         * Checks if A2HS banner can be shown. 
+         * Checks if A2HS banner can be shown.
          * To evaluate to true, localStorage last-decline time must be greater than defaults.showAgainTime or empty, and the web app can't be already installed.
          * @returns {boolean} - whether banner should be shown or not
          */
