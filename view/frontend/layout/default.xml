@@ -22,6 +22,7 @@
         </referenceContainer>
         <referenceContainer name="before.body.end">
             <block name="pwa.service-worker.register" template="MageSuite_Pwa::service-worker/register.phtml" after="-" ifconfig="pwa/general/is_enabled"/>
+            <block name="pwa.installation.prompt.ios" template="MageSuite_Pwa::pwa-installation-prompt-ios-js-init.phtml" after="-" ifconfig="pwa/general/ios_installation_prompt_is_enabled"/>
         </referenceContainer>
     </body>
 </page>

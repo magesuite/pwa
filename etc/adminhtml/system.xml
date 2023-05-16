@@ -120,6 +120,14 @@
                     </depends>
                     <comment>Enables service worker debug mode.</comment>
                 </field>
+                <field id="ios_installation_prompt_is_enabled" translate="label" type="select" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable custom IOS installation prompt</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="pwa/general/is_enabled">1</field>
+                    </depends>
+                    <comment>Displays a custom installation prompt to explain to users on iOS devices how to add the PWA to their home screen.</comment>
+                </field>
             </group>
         </section>
     </system>
