@@ -66,7 +66,7 @@ define([
         canShowPrompt: function() {
             const isStandalone = ('standalone' in window.navigator) && (window.navigator.standalone);
             const lastDeclinedTime = parseInt(localStorage.getItem('magesuite-ios-pwa-prompt-declined-time'), 10);
-            return !isStandalone && (!lastDeclinedTime || new Date().getTime() + this.showTimeout >= lastDeclinedTime + this.hidingTime);
+            return !isStandalone && ((!lastDeclinedTime || lastDeclinedTime === NaN) || new Date().getTime() + this.showTimeout >= lastDeclinedTime + this.hidingTime);
         },
 
         handleDisplaysCount: function () {
