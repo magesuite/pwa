@@ -42,14 +42,27 @@
                     <ticket_id>MGS-4646</ticket_id>
                 </entry>
             </tag>
-            <tag version="1.3.0" date="2023-05-15">
+            <tag version="1.2.5" date="2023-02-06">
                 <entry>
-                    <type>FEAT</type>
+                    <type>FIX</type>
+                    <overview>chore: Adjust translation</overview>
+                    <ticket_id>MGS-4646</ticket_id>
+                </entry>
+            </tag>
+            <tag version="1.2.6" date="2023-05-16">
+                <entry>
+                    <type>FIX</type>
                     <overview>Add IOS custom installation prompts for PWA</overview>
                     <ticket_id>IPET-2029</ticket_id>
                 </entry>
             </tag>
-            <tag version="1.4.0" date="2023-09-11">
+            <tag version="1.2.7" date="2023-05-16">
+                <entry>
+                    <type>FIX</type>
+                    <overview>Adjust canShowPrompt method for ios installation prompt</overview>
+                </entry>
+            </tag>
+            <tag version="1.3.0" date="2023-09-11">
                 <entry>
                     <type>FEAT</type>
                     <overview>Implement MageSuite-Pwa adjustments related to PWA Installation guide</overview>
