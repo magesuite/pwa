@@ -1,0 +1,22 @@
+<div class="cs-pwa-guide__tabs-wrapper">
+    <a href="#benefits" class="cs-pwa-guide__tabs-item cs-pwa-guide__tabs-item--benefits cs-pwa-guide__tabs-item__active" data-section="benefits">
+        <span><?= __('Benefits'); ?></span>
+    </a>
+    <a href="#installation" class="cs-pwa-guide__tabs-item cs-pwa-guide__tabs-item--installation" data-section="installation">
+        <span><?= __('How to install'); ?></span>
+    </a>
+</div>
+
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "*": {
+                    "component": "MageSuite_Pwa/js/pwa-installation-guide-helper"
+                }
+            }
+        }
+    }
+}
+</script>

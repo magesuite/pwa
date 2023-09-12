@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <attribute name="class" value="pwa-guide-landingpage"/>
+
+        <referenceContainer name="header.search.wrapper" remove="true" />
+        <referenceContainer name="top.bar.container" remove="true" />
+        <referenceContainer name="container.newsletter" remove="true" />
+        <referenceContainer name="container.usps" remove="true" />
+        <referenceContainer name="header.nav" remove="true" />
+
+        <referenceBlock name="top.search" remove="true" />
+        <referenceBlock name="top.links" remove="true" />
+        <referenceBlock name="header.offcanvas-toggle" remove="true" />
+        <referenceBlock name="sale.bar.content" remove="true" />
+
+        <referenceBlock name="header-wrapper">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="pwa.installation-guide.tabs"
+                   cacheable="true"
+                   after="-"
+                   template="MageSuite_Pwa::installation-guide/tabs.phtml" />
+        </referenceBlock>
+        <referenceContainer name="main">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="pwa.installation-guide.content"
+                   cacheable="true"
+                   before="pwa.installation-guide.desktop-cover"
+                   template="MageSuite_Pwa::installation-guide/content.phtml" />
+            <block class="Magento\Framework\View\Element\Template"
+                   name="pwa.installation-guide.desktop-cover"
+                   cacheable="true"
+                   after="-"
+                   template="MageSuite_Pwa::installation-guide/desktop-cover.phtml" />
+        </referenceContainer>
+    </body>
+</page>
