@@ -81,6 +81,14 @@ class IndexTest extends \Magento\TestFramework\TestCase\AbstractController
         $this->assertTrue($this->getResponse()->isRedirect());
     }
 
+    public function testItSetsPwaCookieCorrectly()
+    {
+        $this->dispatch("magesuite-pwa/redirect/index");
+        $this->assertIsArray($_COOKIE); //phpcs:ignore
+        $this->assertArrayHasKey('pwa', $_COOKIE); //phpcs:ignore
+        $this->assertEquals('true', $_COOKIE['pwa']); //phpcs:ignore
+    }
+
     /**
      * @return mixed
      */

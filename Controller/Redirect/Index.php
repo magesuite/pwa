@@ -10,17 +10,23 @@ class Index extends \Magento\Framework\App\Action\Action
     protected $resultPageFactory;
     protected \Magento\Customer\Model\Session $customerSession;
     protected \MageSuite\Pwa\Helper\Configuration $configuration;
+    protected \Magento\Framework\Stdlib\Cookie\CookieMetadataFactory $cookieMetadataFactory;
+    protected \Magento\Framework\Stdlib\CookieManagerInterface $cookieManagerInterface;
 
     public function __construct(
         \Magento\Framework\App\Action\Context $context,
         \Magento\Framework\View\Result\PageFactory $resultPageFactory,
         \MageSuite\Pwa\Helper\Configuration $configuration,
-        \Magento\Customer\Model\Session $customerSession
+        \Magento\Customer\Model\Session $customerSession,
+        \Magento\Framework\Stdlib\CookieManagerInterface $cookieManagerInterface,
+        \Magento\Framework\Stdlib\Cookie\CookieMetadataFactory $cookieMetadataFactory
     ) {
         $this->resultPageFactory = $resultPageFactory;
         parent::__construct($context);
         $this->customerSession = $customerSession;
         $this->configuration = $configuration;
+        $this->cookieMetadataFactory = $cookieMetadataFactory;
+        $this->cookieManagerInterface = $cookieManagerInterface;
     }
 
     public function execute()
@@ -30,7 +36,7 @@ class Index extends \Magento\Framework\App\Action\Action
             $this->configuration->getStartUrlForNotLoggedIn();
 
         $startUrl = $this->addUtmParameterToUrl($startUrl);
-
+        $this->addPwaCookie();
         $this->_redirect($startUrl);
     }
 
@@ -49,5 +55,20 @@ class Index extends \Magento\Framework\App\Action\Action
         $url_parts['query'] = http_build_query($params);
 
         return $url_parts['scheme'] . '://' . $url_parts['host'] . $url_parts['path'] . '?' . $url_parts['query'];
+    }
+
+    protected function addPwaCookie(){
+        $tenYearsInSeconds = 315360000;
+        $cookieData = $this->cookieMetadataFactory
+            ->createPublicCookieMetadata()
+            ->setDuration($tenYearsInSeconds)
+            ->setPath('/')
+            ->setSecure(true);
+
+        $this->cookieManagerInterface->setPublicCookie(
+            'pwa',
+            'true',
+            $cookieData
+        );
     }
 }
