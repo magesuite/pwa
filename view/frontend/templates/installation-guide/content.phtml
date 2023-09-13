@@ -1,9 +1,9 @@
 <div class="cs-pwa-guide__content-wrapper">
     <div id="benefits"></div>
     <div class="cs-pwa-guide__content cs-pwa-guide__content-benefits">
-        <?= $this->getLayout()
-            ->createBlock('Magento\Cms\Block\Block')
-            ->setBlockId('pwa-guide-benefits')
+        <?= $block->getLayout()
+            ->createBlock(\Magento\Cms\Block\BlockByIdentifier::class)
+            ->setIdentifier('pwa-guide-benefits')
             ->toHtml();
         ?>
     </div>
@@ -12,18 +12,18 @@
         <div class="cs-pwa-guide__content-installation--ios"
              style="display: none;"
         >
-            <?= $this->getLayout()
-                ->createBlock('Magento\Cms\Block\Block')
-                ->setBlockId('pwa-guide-installation-ios')
+            <?= $block->getLayout()
+                ->createBlock(\Magento\Cms\Block\BlockByIdentifier::class)
+                ->setIdentifier('pwa-guide-installation-ios')
                 ->toHtml();
             ?>
         </div>
         <div class="cs-pwa-guide__content-installation--android"
              style="display: none;"
         >
-            <?= $this->getLayout()
-                ->createBlock('Magento\Cms\Block\Block')
-                ->setBlockId('pwa-guide-installation-android')
+            <?= $block->getLayout()
+                ->createBlock(\Magento\Cms\Block\BlockByIdentifier::class)
+                ->setIdentifier('pwa-guide-installation-android')
                 ->toHtml();
             ?>
         </div>
