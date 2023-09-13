@@ -1,9 +1,12 @@
+<?php
+/** @var \Magento\Framework\Escaper $escaper */
+?>
 <div class="cs-pwa-guide__tabs-wrapper">
     <a href="#benefits" class="cs-pwa-guide__tabs-item cs-pwa-guide__tabs-item--benefits cs-pwa-guide__tabs-item__active" data-section="benefits">
-        <span><?= __('Benefits'); ?></span>
+        <span><?= $escaper->escapeHtml(__('Benefits')); ?></span>
     </a>
     <a href="#installation" class="cs-pwa-guide__tabs-item cs-pwa-guide__tabs-item--installation" data-section="installation">
-        <span><?= __('How to install'); ?></span>
+        <span><?= $escaper->escapeHtml(__('How to install')); ?></span>
     </a>
 </div>
 

@@ -57,7 +57,8 @@ class Index extends \Magento\Framework\App\Action\Action
         return $url_parts['scheme'] . '://' . $url_parts['host'] . $url_parts['path'] . '?' . $url_parts['query'];
     }
 
-    protected function addPwaCookie(){
+    protected function addPwaCookie()
+    {
         $tenYearsInSeconds = 315360000;
         $cookieData = $this->cookieMetadataFactory
             ->createPublicCookieMetadata()

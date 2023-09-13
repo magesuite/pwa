@@ -76,6 +76,13 @@
                     <ticket_id>NPW-11</ticket_id>
                 </entry>
             </tag>
+            <tag version="1.3.2" date="2023-09-12">
+                <entry>
+                    <type>FIX</type>
+                    <overview>Fix escapers in templates</overview>
+                    <ticket_id>NPW-33</ticket_id>
+                </entry>
+            </tag>
         </changelog>
     </module>
 </config>
