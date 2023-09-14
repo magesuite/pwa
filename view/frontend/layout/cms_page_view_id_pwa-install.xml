@@ -8,6 +8,7 @@
         <referenceContainer name="container.newsletter" remove="true" />
         <referenceContainer name="container.usps" remove="true" />
         <referenceContainer name="header.nav" remove="true" />
+        <referenceContainer name="footer-container" remove="true" />
 
         <referenceBlock name="top.search" remove="true" />
         <referenceBlock name="top.links" remove="true" />
