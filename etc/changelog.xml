@@ -83,6 +83,13 @@
                     <ticket_id>NPW-33</ticket_id>
                 </entry>
             </tag>
+            <tag version="1.3.3" date="2023-09-14">
+                <entry>
+                    <type>FIX</type>
+                    <overview>Fix layout in order to clear footer section</overview>
+                    <ticket_id>NPW-33</ticket_id>
+                </entry>
+            </tag>
         </changelog>
     </module>
 </config>
