@@ -1,9 +1,14 @@
 <?php
-/** @var $block \MageSuite\Pwa\Block\Data */
+/** 
+ * See documentation: https://web.dev/service-workers-registration/
+ * @var $block \MageSuite\Pwa\Block\Data
+ * */
 $url = $block->getBaseUrl() . 'service-worker.js';
 ?>
 <script>
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('<?= /* @noEscape */ $url ?>');
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('<?= /* @noEscape */ $url ?>');
+    });
 }
 </script>
