@@ -120,7 +120,17 @@
                     </depends>
                     <comment>Enables service worker debug mode.</comment>
                 </field>
-                <field id="ios_installation_prompt_is_enabled" translate="label" type="select" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+            </group>
+            <group id="guides" translate="label" sortOrder="210" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Guides</label>
+                <field id="show_a2hs_guide" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Add to Homescreen guide on success page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="pwa/general/is_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="ios_installation_prompt_is_enabled" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Enable custom IOS installation prompt</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <depends>

@@ -2,7 +2,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="main">
-            <block name="pwa.a2hs.guide" template="MageSuite_Pwa::pwa-a2hs-guide.phtml" before="-" ifconfig="pwa/general/is_enabled">
+            <block name="pwa.a2hs.guide" template="MageSuite_Pwa::pwa-a2hs-guide.phtml" before="-" ifconfig="pwa/guides/show_a2hs_guide">
                 <block class="MageSuite\ThemeHelpers\Block\Icon" name="pwa.a2hs.guide.icon">
                     <arguments>
                         <argument name="icon_url" xsi:type="string">images/icons/pwa-a2hs-guide/rebuy.svg</argument>
