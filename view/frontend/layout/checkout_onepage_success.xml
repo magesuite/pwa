@@ -3,6 +3,9 @@
     <body>
         <referenceContainer name="main">
             <block name="pwa.a2hs.guide" template="MageSuite_Pwa::pwa-a2hs-guide.phtml" before="-" ifconfig="pwa/guides/show_a2hs_guide">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">MageSuite\Pwa\ViewModel\Data</argument>
+                </arguments>
                 <block class="MageSuite\ThemeHelpers\Block\Icon" name="pwa.a2hs.guide.icon">
                     <arguments>
                         <argument name="icon_url" xsi:type="string">images/icons/pwa-a2hs-guide/rebuy.svg</argument>
