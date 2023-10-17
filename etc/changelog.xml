@@ -90,9 +90,9 @@
                     <ticket_id>NPW-71</ticket_id>
                     <description>
                         Update Google workbox version to 6.6.0
-                        Remove handling of google fonts requests
-                        Register service worker on page load
-                        Add woff|woff2 files to statics
+                        Remove handling of google fonts requests.
+                        Register service worker on page load.
+                        Add woff|woff2 files to statics.
                     </description>
                 </entry>
             </tag>
