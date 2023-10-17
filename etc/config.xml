@@ -10,6 +10,9 @@
                 <categories>shopping,fitness,sports</categories>
                 <debug_mode_is_enabled>false</debug_mode_is_enabled>
             </general>
+            <guides>
+                <show_a2hs_guide>1</show_a2hs_guide>
+            </guides>
         </pwa>
     </default>
 </config>
