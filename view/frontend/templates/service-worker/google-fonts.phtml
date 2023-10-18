@@ -1,10 +1,4 @@
 <?php // phpcs:ignoreFile ?>
-<?php
-/*
-* File not included bu default in servive worker as as google font are mostly used as ststic assets
-*/
-?>
-
 <script>
 // Cache the Google Fonts stylesheets with a stale-while-revalidate strategy.
 workbox.routing.registerRoute(
@@ -20,10 +14,10 @@ workbox.routing.registerRoute(
   new workbox.strategies.CacheFirst({
     cacheName: 'google-fonts-webfonts',
     plugins: [
-      new workbox.cacheableResponse.CacheableResponsePlugin({
+      new workbox.cacheableResponse.Plugin({
         statuses: [0, 200],
       }),
-      new workbox.expiration.ExpirationPlugin({
+      new workbox.expiration.Plugin({
         maxAgeSeconds: 60 * 60 * 24 * 365,
         maxEntries: 30,
       }),
