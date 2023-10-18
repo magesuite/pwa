@@ -9,11 +9,11 @@ $staticBaseUrl = $block->getViewFileUrl('');
 ?>
 <script>
 workbox.routing.registerRoute(
-  new RegExp('<?= /* @noEscape */ $staticBaseUrl ?>.+\.(?:png|gif|jpg|jpeg|webp|svg|js|css|html|json|woff|woff2)$'),
+  new RegExp('<?= /* @noEscape */ $staticBaseUrl ?>.+\.(?:png|gif|jpg|jpeg|webp|svg|js|css|html|json)$'),
   new workbox.strategies.CacheFirst({
     cacheName: 'static',
     plugins: [
-      new workbox.expiration.ExpirationPlugin({
+      new workbox.expiration.Plugin({
         maxEntries: 300,
         maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
       }),
