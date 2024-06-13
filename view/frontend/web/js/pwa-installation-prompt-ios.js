@@ -83,12 +83,12 @@ define([
 
         minimizePrompt: function() {
             this.$prompt.addClass('minimized');
-            window.addEventListener('scroll', this.setScrollListener);
+            window.addEventListener('scroll', this.setScrollListener, false);
         },
 
         deMinimizePrompt: function() {
             this.$prompt.removeClass('minimized');
-            window.removeEventListener('scroll', this.setScrollListener);
+            window.removeEventListener('scroll', this.setScrollListener, false);
         },
 
         setScrollListener: function() {
