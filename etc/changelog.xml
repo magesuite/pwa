@@ -104,6 +104,19 @@
                     <ticket_id>NPW-41</ticket_id>
                 </entry>
             </tag>
+            <tag version="2.0.0" date="2023-10-17">
+                <entry>
+                    <type>FEAT</type>
+                    <overview>Update workbox version</overview>
+                    <description>
+                        Update Google workbox version to 6.6.0
+                        Remove handling of google fonts requests.
+                        Register service worker on page load.
+                        Add woff|woff2 files to statics.
+                    </description>
+                    <ticket_id>NPW-71</ticket_id>
+                </entry>
+            </tag>
             <tag version="1.3.6" date="2024-06-13">
                 <entry>
                     <type>FIX</type>
