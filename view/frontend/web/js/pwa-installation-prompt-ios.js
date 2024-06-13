@@ -43,7 +43,7 @@ define([
 
         attachEvents: function() {
             this.$prompt.on('click', () => {
-                this.minimizePrompt();
+                this.$prompt.hasClass('minimized') ? this.deMinimizePrompt() : this.minimizePrompt();
             });
         },
 
@@ -83,20 +83,23 @@ define([
 
         minimizePrompt: function() {
             this.$prompt.addClass('minimized');
-            this.setScrollListener();
+            window.addEventListener('scroll', this.setScrollListener, false);
+        },
+
+        deMinimizePrompt: function() {
+            this.$prompt.removeClass('minimized');
+            window.removeEventListener('scroll', this.setScrollListener, false);
         },
 
         setScrollListener: function() {
-            window.addEventListener('scroll', () => {
             const st = window.pageYOffset || document.documentElement.scrollTop;
             if (st > this.lastScrollTop) {
-                this.$prompt.hide();
+                $('.cs-pwa-a2hs-guide--ios-prompt').hide();
             } else if (st < this.lastScrollTop) {
-                this.$prompt.show();
+                $('.cs-pwa-a2hs-guide--ios-prompt').show();
             }
 
             this.lastScrollTop = st <= 0 ? 0 : st;
-            }, false);
         },
 
         setHiddenOnNextDisplay: function() {
