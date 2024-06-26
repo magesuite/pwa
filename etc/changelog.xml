@@ -124,6 +124,13 @@
                     <ticket_id>IPET-2029</ticket_id>
                 </entry>
             </tag>
+            <tag version="2.0.3" date="2024-06-25">
+                <entry>
+                    <type>FIX</type>
+                    <overview>Align inline script tags with CSP policy</overview>
+                    <ticket_id>MGS-5332</ticket_id>
+                </entry>
+            </tag>
         </changelog>
     </module>
 </config>

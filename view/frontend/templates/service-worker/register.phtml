@@ -5,10 +5,12 @@
  * */
 $url = $block->getBaseUrl() . 'service-worker.js';
 ?>
-<script>
+<?php $scriptString = <<<script
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
         navigator.serviceWorker.register('<?= /* @noEscape */ $url ?>');
     });
 }
-</script>
+script;
+?>
+<?= /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false) ?>
