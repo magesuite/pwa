@@ -131,6 +131,13 @@
                     <ticket_id>MGS-5332</ticket_id>
                 </entry>
             </tag>
+            <tag version="2.0.4" date="2024-08-07">
+                <entry>
+                    <type>FIX</type>
+                    <overview>Update translations</overview>
+                    <ticket_id>IPET-2029</ticket_id>
+                </entry>
+            </tag>
         </changelog>
     </module>
 </config>
