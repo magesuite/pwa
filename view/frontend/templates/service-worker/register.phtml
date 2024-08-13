@@ -8,7 +8,7 @@ $url = $block->getBaseUrl() . 'service-worker.js';
 <?php $scriptString = <<<script
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
-        navigator.serviceWorker.register('<?= /* @noEscape */ $url ?>');
+        navigator.serviceWorker.register('{$url}');
     });
 }
 script;

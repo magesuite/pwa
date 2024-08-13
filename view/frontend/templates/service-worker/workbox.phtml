@@ -3,14 +3,15 @@
 /** @var \MageSuite\Pwa\ViewModel\Manifest $viewModel */
 $viewModel = $block->getViewModel();
 $configuration = $viewModel->getConfiguration();
-?>
-<script>
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.6.0/workbox-sw.js');
 
-<?php if ($configuration->isDebugModeEnabled()) : ?>
-workbox.setConfig({
+$scriptString = "
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.6.0/workbox-sw.js');";
+
+if ($configuration->isDebugModeEnabled()) {
+    $scriptString .="workbox.setConfig({
   debug: true
-});
+})";
+}
+?>
+<?= /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false) ?>
 
-<?php endif; ?>
-</script>
