@@ -103,6 +103,11 @@ class Configuration extends \Magento\Framework\App\Helper\AbstractHelper
         return (bool)$this->getConfig()->getDebugModeIsEnabled();
     }
 
+    public function isHomescreenUtmSourceEnabled()
+    {
+        return (bool)$this->getConfig()->getAddHomescreenUtmSource();
+    }
+
     protected function getConfig()
     {
         if ($this->config === null) {

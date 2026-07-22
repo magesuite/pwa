@@ -81,6 +81,17 @@ class IndexTest extends \Magento\TestFramework\TestCase\AbstractController
         $this->assertTrue($this->getResponse()->isRedirect());
     }
 
+    /**
+     * @magentoConfigFixture current_store pwa/general/add_homescreen_utm_source 0
+     */
+    public function testItDoesNotAddUtmParameterWhenDisabled()
+    {
+        $this->dispatch("magesuite-pwa/redirect/index");
+
+        $this->assertEquals('http://localhost/index.php/', $this->getRedirectUrl());
+        $this->assertTrue($this->getResponse()->isRedirect());
+    }
+
     public function testItSetsPwaCookieCorrectly()
     {
         $this->dispatch("magesuite-pwa/redirect/index");
