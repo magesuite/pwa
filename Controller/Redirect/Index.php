@@ -35,7 +35,10 @@ class Index extends \Magento\Framework\App\Action\Action
             $this->configuration->getStartUrlForLoggedIn() :
             $this->configuration->getStartUrlForNotLoggedIn();
 
-        $startUrl = $this->addUtmParameterToUrl($startUrl);
+        if ($this->configuration->isHomescreenUtmSourceEnabled()) {
+            $startUrl = $this->addUtmParameterToUrl($startUrl);
+        }
+
         $this->addPwaCookie();
         $this->_redirect($startUrl);
     }

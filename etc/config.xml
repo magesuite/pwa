@@ -9,6 +9,7 @@
                 <theme_color>#FFFFFF</theme_color>
                 <categories>shopping,fitness,sports</categories>
                 <debug_mode_is_enabled>false</debug_mode_is_enabled>
+                <add_homescreen_utm_source>1</add_homescreen_utm_source>
             </general>
             <guides>
                 <show_a2hs_guide>1</show_a2hs_guide>
